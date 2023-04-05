@@ -1,9 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { ActionRowBuilder , EmbedBuilder , ButtonBuilder, ButtonStyle } = require("discord.js");
 
-const acceptRegras = require("../interactions/acceptRegras");
-const deniedRegras = require("../interactions/deniedRegras");
-
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("regras")

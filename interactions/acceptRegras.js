@@ -1,4 +1,6 @@
 const { EmbedBuilder } = require("discord.js");
+const dotenv = require('dotenv');
+dotenv.config();
 
 module.exports = {
   data: {
@@ -8,7 +10,8 @@ module.exports = {
 
   const member = await interaction.guild.members.fetch(interaction.user.id);
 
-  const role = interaction.guild.roles.cache.find(role => role.name === 'Membro');
+  //const role = interaction.guild.roles.cache.find(role => role.name === '✅ Liberado');
+  const role = interaction.guild.roles.cache.get(process.env.VERIFIED)
   
   member.roles.add(role);
 

@@ -4,11 +4,11 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('avatar')
         .setDescription('Pegue o avatar do membro selecionado')
-        .addUserOption(option => option.setName('target').setDescription('avatar')),
+        .addUserOption(option => option.setName('user').setDescription('avatar')),
     
         async execute(interaction) {
     
-        const user = interaction.options.getUser('target');
+        const user = interaction.options.getUser('user');
 
             const embed = new EmbedBuilder()
             .setColor("Random")
