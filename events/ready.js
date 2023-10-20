@@ -1,5 +1,5 @@
 const { REST } = require("@discordjs/rest");
-const { Routes } = require("discord-api-types/v9");
+const { Routes } = require("discord-api-types/v10");
 const { ActivityType , EmbedBuilder } = require("discord.js");
 const config = require("../config.json");
 const color = require('colors');
@@ -58,7 +58,7 @@ module.exports = {
         type: ActivityType.Competing
       }
     ]
-
+    
     setInterval(() => {
       let random  = Math.floor(Math.random() * status.length);
       client.user.setActivity(status[random])
@@ -69,7 +69,6 @@ module.exports = {
     //   status: "online",
     // });
 
-
     //console.log(`Ready! Logged in as ${client.user.tag} (${client.user.id})`);
     console.log(`${color.bold.green(`[READY]`)}` + `Logging into Discord...`.yellow);
         console.table({
@@ -77,14 +76,5 @@ module.exports = {
             "Author": `@theghhz`
         })
         console.log(`${color.bold.green(`[READY]`)}` + `${client.user.tag} is online!`.yellow);
-
-        // let embed = new EmbedBuilder()
-        //   .setColor("Random")
-        //   .setTitle("** ✅ ONLINE **")
-        //   .setDescription(`Estou pronto para uso!`)
-        //   .setTimestamp()
-        //   .setFooter({ text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-       
-        //   client.channels.cache.get(process.env.LOG).send({ content: '@everyone' , embeds: [embed] })
-  },
+    },
 };

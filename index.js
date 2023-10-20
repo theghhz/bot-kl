@@ -74,6 +74,7 @@ for (const file of fs
   }
   eventCount++;
 }
+
 console.log(`${color.bold.green(`[EVENTS]`)}` + `[${eventPath.length}] `.cyan + `in `.yellow + `${eventCount} `.magenta + `Successfully loaded!`.yellow)
 
 // Login

@@ -13,7 +13,7 @@ module.exports = {
       } catch (error) {
         console.error(error);
         await interaction.reply({
-          content: "[#]ERROR -> O COMANDO NÃO PODE SER EXECUTADO!",
+          content: "```[#]ERR -> O COMANDO NÃO PODE SER EXECUTADO!```",
           ephemeral: true,
         });
       }
@@ -31,7 +31,7 @@ module.exports = {
       } catch (error) {
         console.error(error);
         await interaction.reply({
-          content: "[#]ERROR -> O COMANDO NÃO PODE SER EXECUTADO!",
+          content: "```[#]ERR2 -> O COMANDO NÃO PODE SER EXECUTADO!```",
           ephemeral: true,
         });
       }
@@ -47,7 +47,7 @@ module.exports = {
       } catch (error) {
         console.error(error);
         await interaction.reply({
-          content: "[#]ERROR -> O COMANDO NÃO PODE SER EXECUTADO!",
+          content: "```[#]ERR3 -> O COMANDO NÃO PODE SER EXECUTADO!```",
           ephemeral: true,
         });
       }

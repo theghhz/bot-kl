@@ -1,9 +1,9 @@
-const { SelectMenuBuilder, SelectMenuOptionBuilder, EmbedBuilder } = require("discord.js");
+const { StringSelectMenuBuilder, SelectMenuOptionBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   data: {
     id: "sociais",
-    builder: new SelectMenuBuilder()
+    builder: new StringSelectMenuBuilder()
       .setCustomId("sociais")
       .setPlaceholder("Selecione uma opção")
       //.setMinValues(1)

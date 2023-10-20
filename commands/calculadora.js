@@ -5,7 +5,7 @@ module.exports = {
   data: new SlashCommandBuilder()
     .setName("calculadora")
     .setDescription(
-      "Calcula algumas coisas, 99% das vezes tá certo, rs..."
+      "Calcula algumas coisas. 99% das vezes tá certo, rs..."
     )
     .addStringOption((option) =>
       option
@@ -14,8 +14,8 @@ module.exports = {
         .setRequired(true)
         .addChoices(
           {
-            name: "Macaco",
-            value: "macaco",
+            name: "Primata",
+            value: "primata",
           },
           {
             name: "Gay",
@@ -38,7 +38,7 @@ module.exports = {
     .addStringOption((option) =>
       option
         .setName("thing")
-        .setDescription("The thing to calculate it's stuff")
+        .setDescription("'")
         .setRequired(false)
     ),
   global: true,
