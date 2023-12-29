@@ -5,8 +5,11 @@ const {
   ButtonBuilder,
   ButtonStyle,
 } = require("discord.js");
+
 const dotenv = require("dotenv");
 dotenv.config();
+
+const config = require("../config.json");
 
 module.exports = {
   data: new SlashCommandBuilder()
@@ -45,6 +48,12 @@ module.exports = {
       );
     }
 
+    if(!interaction.member.permissions.has("MANAGE_ROLES")){
+      return interaction.reply(
+        ```🔴 Você não tem permissão para executar esse comando!```
+      );
+    }
+
     if (userId === '252263786931683330'){
       return interaction.reply(`Hoje não João.`);
     }
@@ -61,25 +70,28 @@ module.exports = {
       )
       .setTimestamp()
       .setFooter({
-        text: " @KL - 2023 | Beba água!",
-        iconURL:
-          "https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660",
+        text: config.text-footer,
+        iconURL: config.iconURL-footer
       });
 
-      let embedAccept = new EmbedBuilder()
+    let embedAccept = new EmbedBuilder()
             .setColor("Random")
             .setTitle(`**🟢 Cargo adicionado com sucesso!**`)
             .setDescription(` O cargo de ${role} foi adicionado com sucesso ao membro ${member.displayName}.\n\nSTAFF: ${userCommand}`)
             .setTimestamp()
-            .setFooter({ text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-
-      let embedDenied = new EmbedBuilder()
+            .setFooter({
+              text: config.text-footer,
+              iconURL: config.iconURL-footer
+            });
+    let embedDenied = new EmbedBuilder()
             .setColor("Random")
             .setTitle(`**🔴 O cargo não foi adicionado!**`)
             .setDescription(`O cargo não foi adicionado ao membro.\n\nAção cancelada por ${userCommand}.`)
             .setTimestamp()
-            .setFooter({ text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-              
+            .setFooter({
+              text: config.text-footer,
+              iconURL: config.iconURL-footer
+            });
     const row = new ActionRowBuilder().addComponents(
       new ButtonBuilder()
         .setCustomId("accept")

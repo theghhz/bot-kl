@@ -1,5 +1,6 @@
 const { SlashCommandBuilder } = require("@discordjs/builders");
 const { ActionRowBuilder , EmbedBuilder , ButtonBuilder, ButtonStyle } = require("discord.js");
+const config = require("../config.json");
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -48,8 +49,6 @@ module.exports = {
           const member = await interaction.guild.members.fetch(interaction.user.id);
 
           const role = interaction.guild.roles.cache.get(process.env.VERIFIED);
-        
-          member.roles.add(role);
 
           let embedAccept = new EmbedBuilder()
             .setColor("Random")
@@ -72,6 +71,8 @@ module.exports = {
               
           collector.on('collect', async i => {
             if (i.customId === 'accept') {
+              member.roles.add(role);
+              
               await i.update({
                 embeds:[embedAccept],
                 components: [],
@@ -88,7 +89,7 @@ module.exports = {
 
         collector.on('end', async collected => {
             if (collected.size === 0) {
-                await interaction.editReply({ content: '``Não foi selecionado nenhuma opção.``', components: [] });
+                await interaction.editReply({ content: '``Não foi selecionado nenhuma opção.``', embed: [] ,components: [] });
             }
         });
     }
