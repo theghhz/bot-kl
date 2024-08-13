@@ -1,4 +1,0 @@
-MAIN=main.js
-MEMORY=128
-VERSION=recommended
-DISPLAY_NAME=KL Bot

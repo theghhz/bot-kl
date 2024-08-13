@@ -28,6 +28,7 @@ module.exports = {
         )
       ),
   },
+  global: false,
   async execute(interaction) {
     const name = interaction.fields.getTextInputValue("name");
     const hobbies = interaction.fields.getTextInputValue("hobbies");

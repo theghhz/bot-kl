@@ -1,56 +1,49 @@
-const { InteractionType } = require("discord.js");
+const { InteractionType } = require('discord.js');
 
 module.exports = {
-  name: "interactionCreate",
+  name: 'interactionCreate',
   async execute(interaction) {
-    // Command
-    if (interaction.type === InteractionType.ApplicationCommand) {
-      const command = interaction.client.commands.get(interaction.commandName);
-      if (!command) return;
-
-      try {
+    try {
+      console.log(`Interaction received: ${interaction.type}`);
+      if (interaction.type === InteractionType.ApplicationCommand) {
+        console.log(`Command: ${interaction.commandName}`);
+        const command = interaction.client.commands.get(interaction.commandName);
+        if (!command) {
+          console.error(`Comando não encontrado: ${interaction.commandName}`);
+          return;
+        }
         await command.execute(interaction);
-      } catch (error) {
-        console.error(error);
-        await interaction.reply({
-          content: "```[#]ERR -> O COMANDO NÃO PODE SER EXECUTADO!```",
-          ephemeral: true,
-        });
-      }
-    }
-
-    // Message Component (Button, Select Menu)
-    else if (interaction.type === InteractionType.MessageComponent) {
-      const component = interaction.client.interactions.get(
-        interaction.customId
-      );
-      if (!component) return;
-
-      try {
+      } else if (interaction.type === InteractionType.MessageComponent) {
+        console.log(`Component: ${interaction.customId}`);
+        const component = interaction.client.interactions.get(interaction.customId);
+        if (!component) {
+          console.error(`Componente não encontrado: ${interaction.customId}`);
+          return;
+        }
         await component.execute(interaction);
-      } catch (error) {
-        console.error(error);
-        await interaction.reply({
-          content: "```[#]ERR2 -> O COMANDO NÃO PODE SER EXECUTADO!```",
-          ephemeral: true,
-        });
-      }
-    }
-
-    // Modal
-    else if (interaction.type === InteractionType.ModalSubmit) {
-      const modal = interaction.client.interactions.get(interaction.customId);
-      if (!modal) return;
-
-      try {
+      } else if (interaction.type === InteractionType.ModalSubmit) {
+        console.log(`Modal: ${interaction.customId}`);
+        const modal = interaction.client.interactions.get(interaction.customId);
+        if (!modal) {
+          console.error(`Modal não encontrado: ${interaction.customId}`);
+          return;
+        }
         await modal.execute(interaction);
-      } catch (error) {
-        console.error(error);
-        await interaction.reply({
-          content: "```[#]ERR3 -> O COMANDO NÃO PODE SER EXECUTADO!```",
-          ephemeral: true,
-        });
+      } else {
+        console.error(`Tipo de interação não suportado: ${interaction.type}`);
       }
+    } catch (error) {
+      console.error(`Erro ao processar interação: ${error}`);
+      const errorMsg = interaction.type === InteractionType.ApplicationCommand
+        ? '```[#]ERR -> O COMANDO NÃO PODE SER EXECUTADO!```'
+        : interaction.type === InteractionType.MessageComponent
+        ? '```[#]ERR2 -> O COMANDO NÃO PODE SER EXECUTADO!```'
+        : '```[#]ERR3 -> O COMANDO NÃO PODE SER EXECUTADO!```';
+      await interaction.reply({
+        content: errorMsg,
+        ephemeral: true,
+      });
     }
   },
 };
+//

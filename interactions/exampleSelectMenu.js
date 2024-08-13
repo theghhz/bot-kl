@@ -1,4 +1,4 @@
-const { SelectMenuBuilder, SelectMenuOptionBuilder, EmbedBuilder } = require("discord.js");
+/*const { SelectMenuBuilder, SelectMenuOptionBuilder, EmbedBuilder } = require("discord.js");
 
 module.exports = {
   data: {
@@ -51,4 +51,4 @@ module.exports = {
     });
   }
   },
-};
+};*/

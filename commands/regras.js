@@ -20,8 +20,11 @@ module.exports = {
                 { name: "3º Regra", value: "Terceira regra..." },
             )
             .setTimestamp()
-            .setFooter({text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-              
+            .setFooter({
+              text: ' @KL - 2023 | Beba água!',
+              iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+            });
+
         const row = new ActionRowBuilder().addComponents(
      
               new ButtonBuilder()
@@ -55,7 +58,10 @@ module.exports = {
             .setTitle("**😀 BEM VINDA(O)!**")
             .setDescription(` O cargo de ${role} foi adicionado e seu acesso ao servidor foi liberado. Aproveite e não seja um chato!`)
             .setTimestamp()
-            .setFooter({ text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
+            .setFooter({
+              text: ' @KL - 2023 | Beba água!',
+              iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+            });
 
           let embedDenied = new EmbedBuilder()
             .setColor("Random")
@@ -67,8 +73,11 @@ module.exports = {
                   inline: true },
             )
             .setTimestamp()
-            .setFooter({ text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-              
+            .setFooter({
+              text: ' @KL - 2023 | Beba água!',
+              iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+            });
+            
           collector.on('collect', async i => {
             if (i.customId === 'accept') {
               member.roles.add(role);

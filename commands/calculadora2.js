@@ -16,8 +16,10 @@ module.exports = {
             .setTitle("***CALCULADORA***")
             .setDescription(`Escolha um dos modos abaixo da calculadora`)
             .setTimestamp()
-            .setFooter({text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-    
+            .setFooter({
+              text: ' @KL - 2023 | Beba água!',
+              iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+            });
     const row = new ActionRowBuilder().addComponents(
      
         new ButtonBuilder()
@@ -62,8 +64,10 @@ module.exports = {
                 .setTitle(`Calculadora de tamanho de PAU!`)
                 .setDescription(`O pau do ${member}'s é DESSE TAMANHÃO: 8` + "=".repeat(ppSize) + "D")
                 .setTimestamp()
-                .setFooter({text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-    
+                .setFooter({
+                  text: ' @KL - 2023 | Beba água!',
+                  iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+                });
               await i.update({
                 embeds:[replyEmbed],
                 components: []
@@ -76,16 +80,20 @@ module.exports = {
               .setTitle(`Calculadora de Gayzisse`)
               .setDescription(`${member} é ` + rng + `% GAYYYYYYYYY!`)
               .setTimestamp()
-              .setFooter({text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-    
+              .setFooter({
+                text: ' @KL - 2023 | Beba água!',
+                iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+              });
               const replyEmded2 = new EmbedBuilder()
               .setColor("Random")
               .setTitle(`Calculadora de GAY com um PRESENTINHO!`)
               .setDescription(`${member} é ` + rng + `% GAYYYYYYYYYYYYYYYYYYYYZÃO!`)
               .setImage('https://static.imgs.app/content/assetz/uploads/2017/04/meme-do-kid-bengala-quer-ficar-rasgado-pro-verao.jpg')
               .setTimestamp()
-              .setFooter({text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-    
+              .setFooter({
+                text: ' @KL - 2023 | Beba água!',
+                iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+              });
               try{
                 if(rng > 80){
                   await i.update({
@@ -119,8 +127,11 @@ module.exports = {
               .setTitle(`Calculadora de Gamer`)
               .setDescription(`${member} é ` + rng + `% GAMER!!`)
               .setTimestamp()
-              .setFooter({text: ' @KL - 2023 | Beba água!', iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'});
-    
+              .setFooter({
+                text: ' @KL - 2023 | Beba água!',
+                iconURL: 'https://images-ext-2.discordapp.net/external/8PUkVSo1IcID88DRoLjNpMiE1yAbGt5xy01DRD9rkVM/%3Fsize%3D1024/https/cdn.discordapp.com/avatars/889669469696303117/8fdf5f9741f812de9d825e294821a658.webp?width=660&height=660'
+              });
+              
               try {
                 await i.update({
                   embeds: [replyEmbed],

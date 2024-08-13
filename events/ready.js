@@ -1,6 +1,6 @@
 const { REST } = require("@discordjs/rest");
 const { Routes } = require("discord-api-types/v10");
-const { ActivityType , EmbedBuilder } = require("discord.js");
+const { ActivityType } = require("discord.js");
 const config = require("../config.json");
 const color = require('colors');
 const dotenv = require('dotenv');
@@ -13,26 +13,34 @@ module.exports = {
     // Global
     const globalCommands = Array.from(
       client.commands.filter((cmd) => cmd.global === true).values()
-    ).map((m) => m.data);
+    ).map((m) => m.data.toJSON());  // Adicionado .toJSON()
 
     // Guild
     const guildCommands = Array.from(
       client.commands.filter((cmd) => cmd.global === false).values()
-    ).map((m) => m.data);
+    ).map((m) => m.data.toJSON());  // Adicionado .toJSON()
 
-    const rest = new REST({ version: "10" }).setToken(process.env.TOKEN);
+    const rest = new REST({ version: "10" }).setToken(process.env.TOKEN_STUDY);
 
-    // Global <- ATUALIZAR PRO 10.1
-    await rest
-      .put(Routes.applicationCommands(client.user.id), { body: globalCommands })
-      .catch(console.error);
+    // Global
+    try {
+      await rest.put(Routes.applicationCommands(client.user.id), {
+        body: globalCommands,
+      });
+      console.log(`${color.bold.green(`[READY]`)} Global commands registered successfully!`.yellow);
+    } catch (error) {
+      console.error("Failed to register global commands:", error);
+    }
 
     // Guild
-    await rest
-      .put(Routes.applicationGuildCommands(client.user.id, config.guildId), {
+    try {
+      await rest.put(Routes.applicationGuildCommands(client.user.id, config.guildId), {
         body: guildCommands,
-      })
-      .catch(console.error);
+      });
+      console.log(`${color.bold.green(`[READY]`)} Guild commands registered successfully!`.yellow);
+    } catch (error) {
+      console.error("Failed to register guild commands:", error);
+    }
 
     // Rich Presence
     let status = [
@@ -57,24 +65,18 @@ module.exports = {
         name:'ser o mais bonito',
         type: ActivityType.Competing
       }
-    ]
+    ];
     
     setInterval(() => {
       let random  = Math.floor(Math.random() * status.length);
       client.user.setActivity(status[random])
     }, 7000);
     
-    // client.user.setPresence({
-    //   activities: [],
-    //   status: "online",
-    // });
-
-    //console.log(`Ready! Logged in as ${client.user.tag} (${client.user.id})`);
-    console.log(`${color.bold.green(`[READY]`)}` + `Logging into Discord...`.yellow);
-        console.table({
-            "Name": client.user.tag, 
-            "Author": `@theghhz`
-        })
-        console.log(`${color.bold.green(`[READY]`)}` + `${client.user.tag} is online!`.yellow);
-    },
+    console.log(`${color.bold.green(`[READY]`)} Logging into Discord...`.yellow);
+    console.table({
+        "Name": client.user.tag, 
+        "Author": `@theghhz`
+    });
+    console.log(`${color.bold.green(`[READY]`)} ${client.user.tag} is online!`.yellow);
+  },
 };

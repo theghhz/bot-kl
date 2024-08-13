@@ -11,6 +11,7 @@ module.exports = {
     //.setURL('https://discord.com')
     //.setDisabled(true);
   },
+  global: false,
   async execute(interaction) {
     await interaction.reply({
       content: "You pressed my button!",
